@@ -1,0 +1,16 @@
+@import '../../../assets/scss/vars.scss';
+:host {
+    font-size: 1.1rem;
+}
+ul {
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 3px solid $secondary-color;
+}
+li {
+    list-style-type: none;
+    a {
+        padding: 1.5rem;
+    }
+}

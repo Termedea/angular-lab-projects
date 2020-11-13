@@ -1,0 +1,24 @@
+@import '../../../assets/scss/vars.scss';
+
+article {
+    padding: 1rem;
+    background: mix($main-color, white, 10%);
+    margin: 1rem auto;
+    max-width: 45rem;
+    box-shadow: 1px 0 3px #666;
+    .summary {
+        display: flex;
+        gap: 2rem;
+        img {
+            height: 75px;
+            width: 100px;
+        }
+        caption {
+            text-align: left;
+            width: 50%;
+        }
+    }
+    p.post-data {
+        text-align: right;
+    }
+}
