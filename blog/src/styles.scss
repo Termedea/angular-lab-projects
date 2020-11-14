@@ -9,3 +9,9 @@ body {
     background: url('./assets/stars-bg.png');
     background-repeat: repeat;
 }
+a {
+    color: $middle-gray;
+    &:hover {
+        color: $main-color;
+    }
+}

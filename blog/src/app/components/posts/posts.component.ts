@@ -20,7 +20,6 @@ export class PostsComponent implements OnInit {
 
     private fakeSomeData(arr: any[]) {
         for (let post of arr) {
-            post.title = post.title.substr(0, 60);
             post.content = faker.lorem.paragraphs();
             post.caption = faker.lorem.paragraph();
         }
