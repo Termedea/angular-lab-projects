@@ -1,7 +1,8 @@
+@import '../assets/scss/vars.scss';
 header {
     background: rgb(238, 130, 238);
     background: linear-gradient(120deg, rgba(238, 130, 238, 1) 0%, rgba(253, 182, 45, 1) 100%);
-    padding: 1rem;
+    padding: 1rem $header-padding;
     min-height: 15rem;
     display: flex;
     justify-content: flex-end;

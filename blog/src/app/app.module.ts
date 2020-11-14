@@ -14,6 +14,7 @@ import { UsersDetailComponent } from './components/users-detail/users-detail.com
 import { PostsDetailComponent } from './components/posts-detail/posts-detail.component';
 import { ArchivesComponent } from './components/archives/archives.component';
 import { TruncatePipe } from './common/pipes/truncate.pipe';
+import { PostsEditComponent } from './posts-edit/posts-edit.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { TruncatePipe } from './common/pipes/truncate.pipe';
         UsersDetailComponent,
         PostsDetailComponent,
         ArchivesComponent,
-        TruncatePipe
+        TruncatePipe,
+        PostsEditComponent
     ],
     imports: [
         BrowserModule,

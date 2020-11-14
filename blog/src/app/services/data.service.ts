@@ -16,8 +16,10 @@ export class DataService {
         he component does that, so we just return the observable*/
         //return this._http.get(this._url);
 
-        const http$ = this._http.get(this._url);
-        return http$.pipe(catchError(this.handleError));
+        return this._http.get(this._url).pipe(catchError(this.handleError));
+    }
+    getSingle(id) {
+        return this._http.get(this._url + '/' + id).pipe(catchError(this.handleError));
     }
     create(resource) {
         const http$ = this._http.post(this._url, resource);

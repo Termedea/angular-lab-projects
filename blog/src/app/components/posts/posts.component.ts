@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
-import * as faker from 'faker';
 
 @Component({
     selector: 'posts',
@@ -14,15 +13,7 @@ export class PostsComponent implements OnInit {
 
     ngOnInit(): void {
         this._service.getAll().subscribe((posts) => {
-            this.fakeSomeData(posts as any[]);
+            this.posts = this._service.fakePostData(posts as any[]);
         });
-    }
-
-    private fakeSomeData(arr: any[]) {
-        for (let post of arr) {
-            post.content = faker.lorem.paragraphs();
-            post.caption = faker.lorem.paragraph();
-        }
-        this.posts = arr;
     }
 }

@@ -18,15 +18,15 @@ a {
 
 button {
     background-color: $main-color;
-    padding: 0.5rem;
+    padding: 0.7rem;
     border-radius: 0.5rem;
     border: 2px solid mix($main-color, black, 80%);
-    width: 3rem;
     box-shadow: none;
     text-align: center;
     color: white;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: background 0.7s;
+    transition: background $transition-time;
     &:hover,
     &:active {
         background-color: mix($main-color, black, 80%);

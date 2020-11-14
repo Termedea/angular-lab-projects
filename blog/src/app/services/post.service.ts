@@ -5,6 +5,7 @@ import { AppError } from '../common/errors/app-error';
 import { BadInput } from '../common/errors/bad-input';
 import { NotFound } from '../common/errors/not-found';
 import { DataService } from './data.service';
+import * as faker from 'faker';
 
 @Injectable({
     providedIn: 'root'
@@ -25,5 +26,13 @@ export class PostService extends DataService {
             default:
                 return throwError(new AppError(err, 'I am a custom app error'));
         }
+    }
+
+    fakePostData(posts: any[]) {
+        for (let post of posts) {
+            post.content = faker.lorem.paragraphs();
+            post.caption = faker.lorem.paragraph();
+        }
+        return posts;
     }
 }

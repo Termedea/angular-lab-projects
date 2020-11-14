@@ -1,23 +1,24 @@
 @import '../../../assets/scss/vars.scss';
 :host {
     font-size: 1.1rem;
-    clip-path: inset(10px, 20px, 30px, 40px);
 }
 ul {
     margin: 0;
+
     display: flex;
     justify-content: flex-end;
-    background: linear-gradient(120deg, rgba(238, 130, 238, 0.5) 0%, rgba(253, 182, 45, 0.5) 100%);
+    background: linear-gradient(120deg, rgba(238, 130, 238, 0.5) 0%, rgba(253, 182, 45, 0.7) 100%);
+    clip-path: polygon(0% 0%, 0 0, 100% 0%, 100% 100%, 85% 100%, 45% 20%);
 }
 li {
     list-style-type: none;
-    padding: 1rem;
-    transition: background-color 0.6s;
+    padding: 1rem $header-padding;
+    transition: background-color $transition-time;
     a {
         color: $text-color;
         text-decoration: none;
     }
     &:hover {
-        background-color: rgba(white, 0.5);
+        background-color: rgba($secondary-color, 0.8);
     }
 }

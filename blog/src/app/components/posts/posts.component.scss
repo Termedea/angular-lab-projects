@@ -15,7 +15,7 @@ article {
         display: flex;
         gap: 2rem;
         justify-content: space-evenly;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         margin-bottom: 0.5rem;
         padding-bottom: 0.5rem;
         border-bottom: 1px dotted mix($secondary-color, white, 60%);
@@ -33,7 +33,7 @@ article {
 
     p.post-data {
         text-align: right;
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         margin: 0;
     }
 }
