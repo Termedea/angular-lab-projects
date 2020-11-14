@@ -1,24 +1,45 @@
 @import '../../../assets/scss/vars.scss';
-
+div.posts-container {
+    max-width: 70rem;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
 article {
     padding: 1rem;
-    background: mix($main-color, white, 10%);
-    margin: 1rem auto;
-    max-width: 45rem;
+    background: mix($secondary-color, white, 10%);
+    width: 22rem;
     box-shadow: 1px 0 3px #666;
+    margin-top: 1rem;
     .summary {
         display: flex;
         gap: 2rem;
+        justify-content: space-evenly;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px dotted mix($secondary-color, white, 60%);
+        font-family: $paragraph-font;
         img {
-            height: 75px;
-            width: 100px;
+            height: 90px;
+            width: 120px;
+            border: 1px solid mix($secondary-color, white, 50%);
         }
         caption {
             text-align: left;
             width: 50%;
         }
     }
+    a {
+        color: $middle-gray;
+        &:hover {
+            color: $main-color;
+        }
+    }
     p.post-data {
         text-align: right;
+        font-size: 0.6rem;
+        margin: 0;
     }
 }

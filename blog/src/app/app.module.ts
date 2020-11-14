@@ -13,6 +13,7 @@ import { AppErrorHandler } from './common/app-error-handler';
 import { UsersDetailComponent } from './components/users-detail/users-detail.component';
 import { PostsDetailComponent } from './components/posts-detail/posts-detail.component';
 import { ArchivesComponent } from './components/archives/archives.component';
+import { TruncatePipe } from './common/pipes/truncate.pipe';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { ArchivesComponent } from './components/archives/archives.component';
         NavigationComponent,
         UsersDetailComponent,
         PostsDetailComponent,
-        ArchivesComponent
+        ArchivesComponent,
+        TruncatePipe
     ],
     imports: [
         BrowserModule,

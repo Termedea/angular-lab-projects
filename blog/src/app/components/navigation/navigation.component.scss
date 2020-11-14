@@ -6,11 +6,12 @@ ul {
     margin: 0;
     display: flex;
     justify-content: flex-end;
-    border-bottom: 3px solid $secondary-color;
+    background: linear-gradient(120deg, rgba(238, 130, 238, 0.5) 0%, rgba(253, 182, 45, 0.5) 100%);
 }
 li {
     list-style-type: none;
+    padding-top: 1.5rem;
     a {
-        padding: 1.5rem;
+        margin-right: 1rem;
     }
 }

@@ -1,13 +1,14 @@
-<div *ngIf="posts; else noPosts">
+<div class="posts-container" *ngIf="posts; else noPosts">
     <article *ngFor="let post of posts">
         <h3>{{ post.title | titlecase}}</h3>
         <div class="summary">
-            <img src="{{ post.image }}" alt="{{ post.title }}">
-            <caption>{{ post.caption }} <a routerLink="/posts/{{ post.id }}">Read more&nbsp;></a></caption>
+            <img src="{{ post.image }}" alt="{{ post.title | truncate: 20 :' '}}">
+            <caption>{{ post.caption | truncate }} <a routerLink="/posts/{{ post.id }}">Read&nbsp;more&nbsp;></a>
+            </caption>
         </div>
 
 
-        <p class="post-data">Posted at: <time>{{ post.createdAt | date: 'yyyy-MM-dd HH:mm:ss' }}</time> by:
+        <p class="post-data">Posted: <time>{{ post.createdAt | date: 'yyyy-MM-dd HH:mm'}}</time> by:
             <a routerLink="users/{{ post.author[0].id }}">{{ post.author[0].name }}</a>
         </p>
 

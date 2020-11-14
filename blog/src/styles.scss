@@ -6,8 +6,6 @@ body {
     font-size: 14px;
     color: $text-color;
     font-family: $main-font;
-}
-
-article {
-    font-family: $paragraph-font;
+    background: url('./assets/stars-bg.png');
+    background-repeat: repeat;
 }

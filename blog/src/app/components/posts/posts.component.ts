@@ -14,22 +14,16 @@ export class PostsComponent implements OnInit {
 
     ngOnInit(): void {
         this._service.getAll().subscribe((posts) => {
-            console.log(posts);
-            this.posts = posts as any[];
-
-            this.fakeSomeData();
-            for (let post of this.posts) {
-                post.content = faker.lorem.paragraphs();
-                console.log(post);
-            }
+            this.fakeSomeData(posts as any[]);
         });
     }
 
-    private fakeSomeData() {
-        for (let post of this.posts) {
+    private fakeSomeData(arr: any[]) {
+        for (let post of arr) {
+            post.title = post.title.substr(0, 60);
             post.content = faker.lorem.paragraphs();
             post.caption = faker.lorem.paragraph();
-            console.log(post);
         }
+        this.posts = arr;
     }
 }
