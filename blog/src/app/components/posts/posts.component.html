@@ -7,7 +7,6 @@
             </caption>
         </div>
 
-
         <p class="post-data">Posted: <time>{{ post.createdAt | date: 'yyyy-MM-dd HH:mm'}}</time> by:
             <a routerLink="users/{{ post.author[0].id }}">{{ post.author[0].name }}</a>
         </p>

@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { PostService } from './services/post.service';
-import { AppErrorHandler } from './common/app-error-handler';
+import { AppErrorHandler } from './common/errors/app-error-handler';
 import { UsersDetailComponent } from './components/users-detail/users-detail.component';
 import { PostsDetailComponent } from './components/posts-detail/posts-detail.component';
 import { ArchivesComponent } from './components/archives/archives.component';

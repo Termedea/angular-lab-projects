@@ -8,6 +8,7 @@ import { UsersDetailComponent } from './components/users-detail/users-detail.com
 const routes: Routes = [
     { path: '', component: PostsComponent },
     { path: 'posts/:id', component: PostsDetailComponent },
+    { path: 'posts/new', component: PostsDetailComponent },
     { path: 'users/:id', component: UsersDetailComponent },
     { path: 'archives', component: ArchivesComponent }
 ];

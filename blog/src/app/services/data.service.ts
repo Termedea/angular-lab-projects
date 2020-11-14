@@ -2,9 +2,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { AppError } from '../common/app-error';
-import { BadInput } from '../common/bad-input';
-import { NotFound } from '../common/not-found';
+import { AppError } from '../common/errors/app-error';
+import { BadInput } from '../common/errors/bad-input';
+import { NotFound } from '../common/errors/not-found';
 
 @Injectable({
     providedIn: 'root'

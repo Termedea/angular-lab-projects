@@ -1,11 +1,10 @@
 @import '../../../assets/scss/vars.scss';
 div.posts-container {
-    max-width: 70rem;
-    margin: 0 auto;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
 }
+
 article {
     padding: 1rem;
     background: mix($secondary-color, white, 10%);
