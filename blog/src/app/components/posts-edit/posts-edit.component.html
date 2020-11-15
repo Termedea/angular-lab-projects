@@ -1,0 +1,20 @@
+<h2 class="sub-title">Editing post</h2>
+<form [formGroup]="form" (submit)="update()">
+    <div class="control-group">
+        <label for="title">Title: </label><input formControlName="title" name="title" type="text">
+    </div>
+    <div class="control-group">
+        <label for="caption">Summary: </label><textarea class="smaller" formControlName="caption" name="caption"
+            type="text"></textarea>
+    </div>
+    <div class="control-group">
+        <label for="content">Content: </label>
+        <textarea formControlName="content" name="content" type="text"></textarea>
+    </div>
+    <div class="control-group">
+        <label for="image">Image URL: </label><input formControlName="image" name="image" type="text">
+    </div>
+    <div class="control-group right">
+        <button type="submit">Update</button>
+    </div>
+</form>

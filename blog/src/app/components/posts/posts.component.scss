@@ -1,5 +1,7 @@
 @import '../../../assets/scss/vars.scss';
+
 div.posts-container {
+    background-color: rgba(#fff, 0.6);
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
@@ -9,6 +11,9 @@ article {
     padding: 1rem;
     background: mix($secondary-color, white, 10%);
     width: 22rem;
+    @media (min-width: 1200px) {
+        width: 30rem;
+    }
     box-shadow: 1px 0 3px #666;
     margin-top: 1rem;
     .summary {

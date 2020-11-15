@@ -14,7 +14,7 @@ import { UsersDetailComponent } from './components/users-detail/users-detail.com
 import { PostsDetailComponent } from './components/posts-detail/posts-detail.component';
 import { ArchivesComponent } from './components/archives/archives.component';
 import { TruncatePipe } from './common/pipes/truncate.pipe';
-import { PostsEditComponent } from './posts-edit/posts-edit.component';
+import { PostsEditComponent } from './components/posts-edit/posts-edit.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +25,7 @@ import { PostsEditComponent } from './posts-edit/posts-edit.component';
         PostsDetailComponent,
         ArchivesComponent,
         TruncatePipe,
+        PostsDetailComponent,
         PostsEditComponent
     ],
     imports: [

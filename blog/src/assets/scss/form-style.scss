@@ -1,0 +1,68 @@
+@import './vars.scss';
+
+$main-color-darker: mix($main-color, black, 80%);
+$border: 2px solid $main-color-darker;
+
+button {
+    background-color: $main-color;
+    padding: 0.5rem 1.2rem;
+    border-radius: $input-radius;
+    border: $border;
+    box-shadow: none;
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    margin: 2rem;
+    margin-left: 0;
+    cursor: pointer;
+    transition: background-color $transition-time;
+    &:hover,
+    &:active {
+        background-color: $main-color-darker;
+    }
+    &:focus {
+        outline: none;
+    }
+    &.inactive {
+        border: 2px solid white;
+        background-color: mix($main-color, white, 50%);
+    }
+}
+.control-group {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    &.right {
+        display: flex;
+        justify-content: flex-end;
+        button {
+            margin-right: 0;
+            margin-left: 2rem;
+        }
+    }
+    label {
+        width: 10em;
+    }
+    input,
+    textarea,
+    select {
+        border: 2px solid $text-color;
+        border-radius: $input-radius;
+        padding: 1em;
+        width: 50em;
+        font-size: 1rem;
+        font-family: $main-font;
+
+        &:focus {
+            border: $border;
+            outline: none;
+        }
+    }
+    textarea {
+        height: 20em;
+    }
+    textarea.smaller {
+        height: 5em;
+    }
+}

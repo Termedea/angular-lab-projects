@@ -14,4 +14,8 @@
     </article>
 </div>
 
-<ng-template #noPosts>Fetching posts...</ng-template>
+<ng-template #noPosts>
+    <p class="loading">
+        <fa-icon [spin]="true" [icon]="loadingIcon"></fa-icon> Fetching posts...
+    </p>
+</ng-template>

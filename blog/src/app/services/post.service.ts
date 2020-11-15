@@ -17,7 +17,6 @@ export class PostService extends DataService {
 
     /* Overriding handle error for more custom messages. */
     handleError(err: any) {
-        console.log('PostErrors?');
         switch (err.status) {
             case 404:
                 return throwError(new NotFound(err, "That post doesn't exist"));
@@ -35,4 +34,14 @@ export class PostService extends DataService {
         }
         return posts;
     }
+}
+export interface Post {
+    id: string;
+    createdAt: string;
+    title: string;
+    caption: string;
+    content: string;
+    author: any;
+    image: string;
+    updatedAt: string;
 }

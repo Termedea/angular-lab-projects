@@ -1,12 +1,26 @@
 <main *ngIf="post; else noPost">
-    <h2>{{ post.title | titlecase}}</h2>
-    <div class="post-content">
-        <div class="text-content">
-            <p>{{ post.caption }}</p>
-            <p>{{ post.content }}</p>
+    <button (click)="back()">
+        <fa-icon [icon]="backIcon"></fa-icon> Back
+    </button>
+    <button (click)="edit()" *ngIf="!isEditing">
+        <fa-icon [icon]="editIcon"> </fa-icon> Edit
+    </button>
+    <div *ngIf="!isEditing; else postEdit " class="view">
+        <h2 class="sub-title">
+            {{ post.title | titlecase}}
+        </h2>
+        <div class="post-content">
+            <div class="text-content">
+                <p>{{ post.caption }}</p>
+                <p>{{ post.content }}</p>
+            </div>
+            <img src="{{ post.image }}" alt="{{ post.title }}">
         </div>
-        <img src="{{ post.image }}" alt="{{ post.title }}">
     </div>
+    <posts-edit #postEdit *ngIf="isEditing;" [post]="post"></posts-edit>
 </main>
-<ng-template #noPost>Couldn't fetch post</ng-template>
-<button (click)="back()">Back</button>
+<ng-template #noPost>
+    <p class="loading">
+        <fa-icon [spin]="true" [icon]="loadingIcon"></fa-icon> Fetching post details...
+    </p>
+</ng-template>

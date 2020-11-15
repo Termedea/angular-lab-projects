@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PostService } from 'src/app/services/post.service';
+import { Post, PostService } from 'src/app/services/post.service';
+import { faEdit, faArrowAltCircleLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-posts-detail',
@@ -8,7 +9,11 @@ import { PostService } from 'src/app/services/post.service';
     styleUrls: ['./posts-detail.component.scss']
 })
 export class PostsDetailComponent implements OnInit {
-    post;
+    post: Post;
+    isEditing: boolean;
+    editIcon;
+    backIcon;
+    loadingIcon;
 
     constructor(
         private _router: Router,
@@ -17,15 +22,31 @@ export class PostsDetailComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
+        this.editIcon = faEdit;
+        this.backIcon = faArrowAltCircleLeft;
+        this.loadingIcon = faSpinner;
         this._route.paramMap.subscribe((params) => {
-            if (params.has('id'))
+            if (!this.post) {
+                console.log('show post');
                 this._service.getSingle(params.get('id')).subscribe((post) => {
                     this.post = this._service.fakePostData([post])[0];
-                    console.log(this.post);
                 });
+            }
+            if (params.has('edit')) {
+                this.isEditing = true;
+            }
         });
     }
+
     back() {
-        this._router.navigate(['/']);
+        if (this.isEditing) {
+            this._router.navigate(['/posts/', this.post.id]);
+        } else {
+            this._router.navigate(['/']);
+        }
+    }
+    edit() {
+        console.log('navigating to edit');
+        this._router.navigate(['/posts/', this.post.id, 'edit']);
     }
 }

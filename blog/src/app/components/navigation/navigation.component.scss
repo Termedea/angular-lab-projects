@@ -8,11 +8,13 @@ ul {
     display: flex;
     justify-content: flex-end;
     background: linear-gradient(120deg, rgba(238, 130, 238, 0.5) 0%, rgba(253, 182, 45, 0.7) 100%);
-    clip-path: polygon(0% 0%, 0 0, 100% 0%, 100% 100%, 85% 100%, 45% 20%);
+    @media (min-width: 700px) {
+        clip-path: polygon(0% 0%, 0 0, 100% 0%, 100% 100%, 75% 100%, 35% 30%);
+    }
 }
 li {
     list-style-type: none;
-    padding: 1rem $header-padding;
+    padding: 1.1rem $header-padding;
     transition: background-color $transition-time;
     a {
         color: $text-color;

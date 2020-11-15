@@ -15,27 +15,14 @@ a {
         color: $main-color;
     }
 }
-
-button {
-    background-color: $main-color;
-    padding: 0.7rem;
-    border-radius: 0.5rem;
-    border: 2px solid mix($main-color, black, 80%);
-    box-shadow: none;
-    text-align: center;
-    color: white;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background $transition-time;
-    &:hover,
-    &:active {
-        background-color: mix($main-color, black, 80%);
-    }
-    &:focus {
-        outline: none;
-    }
-    &.inactive {
-        border: 2px solid white;
-        background-color: mix($main-color, white, 50%);
-    }
+h2.sub-title {
+    font-weight: normal;
+    font-size: 2.3rem;
+    margin: 0;
+    margin-bottom: 1.4rem;
+}
+.loading {
+    margin-top: 6rem;
+    font-size: 1.5rem;
+    color: rgba($main-color, 0.7);
 }

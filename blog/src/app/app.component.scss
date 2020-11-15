@@ -17,3 +17,7 @@ div.container {
     max-width: 70rem;
     margin: 0 auto;
 }
+router-outlet + * {
+    margin-top: 1rem;
+    padding: 1.5rem;
+}
