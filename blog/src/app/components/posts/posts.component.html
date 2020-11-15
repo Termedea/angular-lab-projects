@@ -7,7 +7,7 @@
             </caption>
         </div>
 
-        <p class="post-data">Posted: <time>{{ post.createdAt | date: 'yyyy-MM-dd HH:mm'}}</time> by:
+        <p class="post-data">Updated at: <time>{{ post.updatedAt | date: 'yyyy-MM-dd HH:mm'}}</time> by:
             <a routerLink="users/{{ post.author[0].id }}">{{ post.author[0].name }}</a>
         </p>
 

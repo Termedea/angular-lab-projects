@@ -30,7 +30,7 @@ button {
 }
 .control-group {
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
     font-size: 1.4rem;
     margin-bottom: 1rem;
     &.right {
@@ -49,8 +49,9 @@ button {
     select {
         border: 2px solid $text-color;
         border-radius: $input-radius;
-        padding: 1em;
-        width: 50em;
+        padding: 1rem;
+        width: 45em;
+        flex-grow: 1;
         font-size: 1rem;
         font-family: $main-font;
 
@@ -58,11 +59,34 @@ button {
             border: $border;
             outline: none;
         }
+        &.error {
+            border-color: red;
+        }
     }
     textarea {
         height: 20em;
     }
     textarea.smaller {
-        height: 5em;
+        height: 7em;
+    }
+}
+.form-error-icon {
+    color: red;
+    padding-left: 1rem;
+}
+.error-container {
+    text-align: right;
+    margin-bottom: 1rem;
+    span {
+        display: inline-block;
+        text-align: left;
+        width: 50rem;
+        padding: 1rem;
+        background: mix($main-color, red, 30%);
+        border-radius: $input-radius;
+
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
     }
 }

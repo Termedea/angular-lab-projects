@@ -27,7 +27,6 @@ export class PostsDetailComponent implements OnInit {
         this.loadingIcon = faSpinner;
         this._route.paramMap.subscribe((params) => {
             if (!this.post) {
-                console.log('show post');
                 this._service.getSingle(params.get('id')).subscribe((post) => {
                     this.post = this._service.fakePostData([post])[0];
                 });

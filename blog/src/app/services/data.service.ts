@@ -10,7 +10,7 @@ import { NotFound } from '../common/errors/not-found';
     providedIn: 'root'
 })
 export class DataService {
-    constructor(private _http: HttpClient, private _url: string) {}
+    constructor(protected _http: HttpClient, protected _url: string) {}
     getAll() {
         /*we don't have to subscribe to handle the response, 
         he component does that, so we just return the observable*/

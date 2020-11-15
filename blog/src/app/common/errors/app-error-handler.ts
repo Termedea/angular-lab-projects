@@ -6,6 +6,6 @@ export class AppErrorHandler implements ErrorHandler {
     handleError(error: any) {
         //log error in db.
         if (error instanceof AppError)
-            console.log(error.getErrorText(), error.getOriginError(), new Date().getTime());
+            console.log(error.getErrorText(), error.getOriginError(), Date.now());
     }
 }

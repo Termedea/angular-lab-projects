@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, Form, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Post } from 'src/app/services/post.service';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Post, PostService } from 'src/app/services/post.service';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { AppError } from 'src/app/common/errors/app-error';
 
 @Component({
     selector: 'posts-edit',
@@ -10,7 +12,8 @@ import { Post } from 'src/app/services/post.service';
 export class PostsEditComponent implements OnInit {
     @Input('post') post: Post;
     form: AbstractControl;
-    constructor() {}
+    errorIcon;
+    constructor(private _service: PostService) {}
     get title() {
         return this.form.get('title');
     }
@@ -25,6 +28,7 @@ export class PostsEditComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.errorIcon = faExclamationTriangle;
         this.form = new FormGroup({
             title: new FormControl(this.post.title, [Validators.required]),
             caption: new FormControl(this.post.caption),
@@ -32,5 +36,23 @@ export class PostsEditComponent implements OnInit {
             image: new FormControl(this.post.image)
         });
     }
-    update() {}
+    update() {
+        let newData = {
+            title: this.title,
+            caption: this.caption.value,
+            content: this.content.value,
+            image: this.image.value,
+            updatedAt: Date.now()
+        };
+
+        this._service.updatePost(this.post.id, newData).subscribe({
+            next: null,
+            error: (error) => {
+                if (error instanceof AppError) this.form.setErrors(error.getValidationErrors());
+            }
+        });
+    }
+    debug(control: AbstractControl) {
+        console.log(control);
+    }
 }

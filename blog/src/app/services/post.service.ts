@@ -6,13 +6,20 @@ import { BadInput } from '../common/errors/bad-input';
 import { NotFound } from '../common/errors/not-found';
 import { DataService } from './data.service';
 import * as faker from 'faker';
+import { catchError } from 'rxjs/internal/operators/catchError';
 
 @Injectable({
     providedIn: 'root'
 })
 export class PostService extends DataService {
     constructor(http: HttpClient) {
-        super(http, 'https://5fad69682ec98b00160484db.mockapi.io/api/v1/posts');
+        let url = 'https://5fad69682ec98b00160484db.mockapi.io/api/v1/posts';
+        super(http, url);
+    }
+
+    updatePost(id: number, data) {
+        const http$ = this._http.put(this._url + '/' + id, data);
+        return http$.pipe(catchError(this.handleError));
     }
 
     /* Overriding handle error for more custom messages. */
@@ -23,7 +30,7 @@ export class PostService extends DataService {
             case 400:
                 return throwError(new BadInput(err));
             default:
-                return throwError(new AppError(err, 'I am a custom app error'));
+                return throwError(new AppError(err));
         }
     }
 
@@ -36,7 +43,7 @@ export class PostService extends DataService {
     }
 }
 export interface Post {
-    id: string;
+    id: number;
     createdAt: string;
     title: string;
     caption: string;

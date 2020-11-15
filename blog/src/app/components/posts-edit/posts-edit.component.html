@@ -1,7 +1,18 @@
 <h2 class="sub-title">Editing post</h2>
 <form [formGroup]="form" (submit)="update()">
+
+    <div class="error-container" *ngIf="form.touched && form.invalid">
+        <span *ngIf="form.errors.genericAppError">
+            <fa-icon [icon]="errorIcon"></fa-icon> Whoops, that wasn't supposed to happen. Reporting error.
+        </span>
+
+    </div>
+
     <div class="control-group">
-        <label for="title">Title: </label><input formControlName="title" name="title" type="text">
+        <label for="title">Title: </label><input [class.error]="title.errors" formControlName="title" name="title"
+            type="text" (blur)="debug(title)">
+        <fa-icon *ngIf="title.errors" [icon]="errorIcon" class="form-error-icon" title="Title is required.">
+        </fa-icon>
     </div>
     <div class="control-group">
         <label for="caption">Summary: </label><textarea class="smaller" formControlName="caption" name="caption"
@@ -9,7 +20,10 @@
     </div>
     <div class="control-group">
         <label for="content">Content: </label>
-        <textarea formControlName="content" name="content" type="text"></textarea>
+        <textarea formControlName="content" name="content" type="text" [class.error]="content.errors"
+            (blur)="debug(content)"></textarea>
+        <fa-icon *ngIf="content.errors" [icon]="errorIcon" class="form-error-icon" title="Content is required.">
+        </fa-icon>
     </div>
     <div class="control-group">
         <label for="image">Image URL: </label><input formControlName="image" name="image" type="text">
